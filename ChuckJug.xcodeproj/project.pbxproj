@@ -7,22 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161934762202D75100D71F56 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161934752202D75100D71F56 /* CategoryView.swift */; };
+		161934782202D77200D71F56 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161934772202D77200D71F56 /* CategoryCell.swift */; };
+		1619347C2202E49300D71F56 /* CategorisedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619347B2202E49300D71F56 /* CategorisedView.swift */; };
+		1619347E2202E86200D71F56 /* CategorisedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619347D2202E86200D71F56 /* CategorisedCell.swift */; };
+		16584A182202A03A00CF627B /* RandomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A172202A03A00CF627B /* RandomController.swift */; };
+		16584A1A2202A1BC00CF627B /* RandomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A192202A1BC00CF627B /* RandomCell.swift */; };
+		16584A1E2202BC0500CF627B /* JokeData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A1C2202BC0500CF627B /* JokeData+CoreDataClass.swift */; };
+		16584A1F2202BC0500CF627B /* JokeData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A1D2202BC0500CF627B /* JokeData+CoreDataProperties.swift */; };
+		16584A222202C5AF00CF627B /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A212202C5AF00CF627B /* FavouriteCell.swift */; };
+		16584A242202C5D900CF627B /* FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A232202C5D900CF627B /* FavouriteController.swift */; };
 		165BC3DE21E94B1400D317D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165BC3DD21E94B1400D317D1 /* AppDelegate.swift */; };
 		165BC3E321E94B1400D317D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165BC3E121E94B1400D317D1 /* Main.storyboard */; };
 		165BC3E621E94B1400D317D1 /* ChuckJug.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 165BC3E421E94B1400D317D1 /* ChuckJug.xcdatamodeld */; };
 		165BC3E821E94B1500D317D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 165BC3E721E94B1500D317D1 /* Assets.xcassets */; };
 		165BC3EB21E94B1500D317D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165BC3E921E94B1500D317D1 /* LaunchScreen.storyboard */; };
-		165BC3F321E9510900D317D1 /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165BC3F221E9510900D317D1 /* RandomViewController.swift */; };
-		165BC3F521E9513E00D317D1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165BC3F421E9513E00D317D1 /* CategoryViewController.swift */; };
-		165BC3F721E9517400D317D1 /* SpecialisedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165BC3F621E9517400D317D1 /* SpecialisedViewController.swift */; };
-		165BC3F921E951B300D317D1 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165BC3F821E951B300D317D1 /* FavouriteViewController.swift */; };
-		16699D0F21E96B30001FE244 /* JokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16699D0E21E96B30001FE244 /* JokeCell.swift */; };
-		166FA6F121FDBAD200C5C5B3 /* JokeData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FA6EF21FDBAD200C5C5B3 /* JokeData+CoreDataClass.swift */; };
-		166FA6F221FDBAD200C5C5B3 /* JokeData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FA6F021FDBAD200C5C5B3 /* JokeData+CoreDataProperties.swift */; };
-		166FA6F621FE16A700C5C5B3 /* FavouriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FA6F521FE16A700C5C5B3 /* FavouriteViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		161934752202D75100D71F56 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		161934772202D77200D71F56 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		1619347B2202E49300D71F56 /* CategorisedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorisedView.swift; sourceTree = "<group>"; };
+		1619347D2202E86200D71F56 /* CategorisedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorisedCell.swift; sourceTree = "<group>"; };
+		16584A172202A03A00CF627B /* RandomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomController.swift; sourceTree = "<group>"; };
+		16584A192202A1BC00CF627B /* RandomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCell.swift; sourceTree = "<group>"; };
+		16584A1C2202BC0500CF627B /* JokeData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JokeData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16584A1D2202BC0500CF627B /* JokeData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JokeData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		16584A212202C5AF00CF627B /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
+		16584A232202C5D900CF627B /* FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteController.swift; sourceTree = "<group>"; };
 		165BC3DA21E94B1400D317D1 /* ChuckJug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChuckJug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		165BC3DD21E94B1400D317D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		165BC3E221E94B1400D317D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -30,14 +42,6 @@
 		165BC3E721E94B1500D317D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		165BC3EA21E94B1500D317D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		165BC3EC21E94B1500D317D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		165BC3F221E9510900D317D1 /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
-		165BC3F421E9513E00D317D1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		165BC3F621E9517400D317D1 /* SpecialisedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialisedViewController.swift; sourceTree = "<group>"; };
-		165BC3F821E951B300D317D1 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
-		16699D0E21E96B30001FE244 /* JokeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCell.swift; sourceTree = "<group>"; };
-		166FA6EF21FDBAD200C5C5B3 /* JokeData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "JokeData+CoreDataClass.swift"; path = "ChuckJug/JokeData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		166FA6F021FDBAD200C5C5B3 /* JokeData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "JokeData+CoreDataProperties.swift"; path = "ChuckJug/JokeData+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		166FA6F521FE16A700C5C5B3 /* FavouriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,11 +55,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1619347A2202D79600D71F56 /* CategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				161934752202D75100D71F56 /* CategoryView.swift */,
+				161934772202D77200D71F56 /* CategoryCell.swift */,
+			);
+			path = CategoryView;
+			sourceTree = "<group>";
+		};
+		1619347F2202E9C300D71F56 /* CategoriedView */ = {
+			isa = PBXGroup;
+			children = (
+				1619347B2202E49300D71F56 /* CategorisedView.swift */,
+				1619347D2202E86200D71F56 /* CategorisedCell.swift */,
+			);
+			path = CategoriedView;
+			sourceTree = "<group>";
+		};
+		16584A1B2202A1C300CF627B /* RandomView */ = {
+			isa = PBXGroup;
+			children = (
+				16584A172202A03A00CF627B /* RandomController.swift */,
+				16584A192202A1BC00CF627B /* RandomCell.swift */,
+			);
+			path = RandomView;
+			sourceTree = "<group>";
+		};
+		16584A202202C57000CF627B /* FavouriteView */ = {
+			isa = PBXGroup;
+			children = (
+				16584A232202C5D900CF627B /* FavouriteController.swift */,
+				16584A212202C5AF00CF627B /* FavouriteCell.swift */,
+			);
+			path = FavouriteView;
+			sourceTree = "<group>";
+		};
 		165BC3D121E94B1400D317D1 = {
 			isa = PBXGroup;
 			children = (
-				166FA6EF21FDBAD200C5C5B3 /* JokeData+CoreDataClass.swift */,
-				166FA6F021FDBAD200C5C5B3 /* JokeData+CoreDataProperties.swift */,
+				16584A1C2202BC0500CF627B /* JokeData+CoreDataClass.swift */,
+				16584A1D2202BC0500CF627B /* JokeData+CoreDataProperties.swift */,
 				165BC3DC21E94B1400D317D1 /* ChuckJug */,
 				165BC3DB21E94B1400D317D1 /* Products */,
 			);
@@ -73,17 +113,15 @@
 			isa = PBXGroup;
 			children = (
 				165BC3DD21E94B1400D317D1 /* AppDelegate.swift */,
+				1619347F2202E9C300D71F56 /* CategoriedView */,
+				1619347A2202D79600D71F56 /* CategoryView */,
+				16584A1B2202A1C300CF627B /* RandomView */,
+				16584A202202C57000CF627B /* FavouriteView */,
 				165BC3E121E94B1400D317D1 /* Main.storyboard */,
-				16699D0E21E96B30001FE244 /* JokeCell.swift */,
-				165BC3F221E9510900D317D1 /* RandomViewController.swift */,
-				165BC3F421E9513E00D317D1 /* CategoryViewController.swift */,
-				165BC3F621E9517400D317D1 /* SpecialisedViewController.swift */,
-				166FA6F521FE16A700C5C5B3 /* FavouriteViewCell.swift */,
-				165BC3F821E951B300D317D1 /* FavouriteViewController.swift */,
-				165BC3E721E94B1500D317D1 /* Assets.xcassets */,
-				165BC3E921E94B1500D317D1 /* LaunchScreen.storyboard */,
 				165BC3EC21E94B1500D317D1 /* Info.plist */,
 				165BC3E421E94B1400D317D1 /* ChuckJug.xcdatamodeld */,
+				165BC3E721E94B1500D317D1 /* Assets.xcassets */,
+				165BC3E921E94B1500D317D1 /* LaunchScreen.storyboard */,
 			);
 			path = ChuckJug;
 			sourceTree = "<group>";
@@ -159,16 +197,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				165BC3F521E9513E00D317D1 /* CategoryViewController.swift in Sources */,
-				16699D0F21E96B30001FE244 /* JokeCell.swift in Sources */,
-				165BC3F321E9510900D317D1 /* RandomViewController.swift in Sources */,
-				166FA6F221FDBAD200C5C5B3 /* JokeData+CoreDataProperties.swift in Sources */,
-				165BC3F721E9517400D317D1 /* SpecialisedViewController.swift in Sources */,
+				16584A1F2202BC0500CF627B /* JokeData+CoreDataProperties.swift in Sources */,
+				16584A1A2202A1BC00CF627B /* RandomCell.swift in Sources */,
+				16584A222202C5AF00CF627B /* FavouriteCell.swift in Sources */,
 				165BC3E621E94B1400D317D1 /* ChuckJug.xcdatamodeld in Sources */,
-				165BC3F921E951B300D317D1 /* FavouriteViewController.swift in Sources */,
-				166FA6F121FDBAD200C5C5B3 /* JokeData+CoreDataClass.swift in Sources */,
-				166FA6F621FE16A700C5C5B3 /* FavouriteViewCell.swift in Sources */,
 				165BC3DE21E94B1400D317D1 /* AppDelegate.swift in Sources */,
+				16584A242202C5D900CF627B /* FavouriteController.swift in Sources */,
+				1619347E2202E86200D71F56 /* CategorisedCell.swift in Sources */,
+				16584A1E2202BC0500CF627B /* JokeData+CoreDataClass.swift in Sources */,
+				16584A182202A03A00CF627B /* RandomController.swift in Sources */,
+				161934762202D75100D71F56 /* CategoryView.swift in Sources */,
+				1619347C2202E49300D71F56 /* CategorisedView.swift in Sources */,
+				161934782202D77200D71F56 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
