@@ -40,7 +40,6 @@ class RandomController: UITableViewController, NSFetchedResultsControllerDelegat
         return self.resultsController.fetchedObjects?.count ?? 0
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RandomCell
         let cellData = self.resultsController.fetchedObjects?[indexPath.row]

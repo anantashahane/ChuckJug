@@ -49,6 +49,9 @@ class CategorisedCell: UITableViewCell {
         if Jokedata.favourite {
             self.Favorite.tintColor = .red
         }
+        else {
+            self.Favorite.tintColor = .black
+        }
     }
     override func awakeFromNib() {
         super.awakeFromNib()

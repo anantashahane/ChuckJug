@@ -50,6 +50,9 @@ class FavouriteCell: UITableViewCell {
         if Jokedata.favourite {
             self.Favourite.tintColor = .red
         }
+        else {
+            self.Favourite.tintColor = .black
+        }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
