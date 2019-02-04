@@ -29,7 +29,7 @@ class CategorisedCell: UITableViewCell {
                            "sport" : UIImage.init(named: "sport"),
                            "political" : UIImage.init(named: "political"),
                            "religion" : UIImage.init(named: "religion"),
-                           "animal" : UIImage.init(named: "aminal"),
+                           "animal" : UIImage.init(named: "animal"),
                            "history" : UIImage.init(named: "history"),
                            "music" : UIImage.init(named: "music"),
                            "travel" : UIImage.init(named: "travel"),
@@ -41,17 +41,27 @@ class CategorisedCell: UITableViewCell {
     
     public func SetupCell(for Joke: JokeData) {
         self.Jokedata = Joke
-        let category = self.Jokedata.category as? [String]
-        let bmi = BackGroundImage[category?.first ?? "unknown"]!
+        let category = self.Jokedata.categories
+        let bmi = BackGroundImage[category.first?.category ?? "unknown"]!
         self.BackGround.image = bmi
-        self.CategoryLabel.text = category?.first ?? "unknown"
-        self.JokeLabel.text = self.Jokedata.joke
+        self.CategoryLabel.text = category.first?.category ?? "unknown"
+        let attributedString = NSMutableAttributedString(string: self.Jokedata.joke!)
+        
+        let attributes0: [NSAttributedString.Key : Any] = [
+            .foregroundColor: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1.0),
+            .font: UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        ]
+        attributedString.addAttributes(attributes0, range: NSRange(location: 0, length: self.Jokedata.joke!.count))
+        
+        
+        self.JokeLabel.attributedText = attributedString
         if Jokedata.favourite {
             self.Favorite.tintColor = .red
         }
         else {
             self.Favorite.tintColor = .black
         }
+        self.selectionStyle = UITableViewCell.SelectionStyle.none
     }
     override func awakeFromNib() {
         super.awakeFromNib()

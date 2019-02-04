@@ -13,8 +13,6 @@
 		1619347E2202E86200D71F56 /* CategorisedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619347D2202E86200D71F56 /* CategorisedCell.swift */; };
 		16584A182202A03A00CF627B /* RandomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A172202A03A00CF627B /* RandomController.swift */; };
 		16584A1A2202A1BC00CF627B /* RandomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A192202A1BC00CF627B /* RandomCell.swift */; };
-		16584A1E2202BC0500CF627B /* JokeData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A1C2202BC0500CF627B /* JokeData+CoreDataClass.swift */; };
-		16584A1F2202BC0500CF627B /* JokeData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A1D2202BC0500CF627B /* JokeData+CoreDataProperties.swift */; };
 		16584A222202C5AF00CF627B /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A212202C5AF00CF627B /* FavouriteCell.swift */; };
 		16584A242202C5D900CF627B /* FavouriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16584A232202C5D900CF627B /* FavouriteController.swift */; };
 		165BC3DE21E94B1400D317D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165BC3DD21E94B1400D317D1 /* AppDelegate.swift */; };
@@ -22,6 +20,10 @@
 		165BC3E621E94B1400D317D1 /* ChuckJug.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 165BC3E421E94B1400D317D1 /* ChuckJug.xcdatamodeld */; };
 		165BC3E821E94B1500D317D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 165BC3E721E94B1500D317D1 /* Assets.xcassets */; };
 		165BC3EB21E94B1500D317D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165BC3E921E94B1500D317D1 /* LaunchScreen.storyboard */; };
+		16CC8E38220826AB005D65D7 /* Categories+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC8E34220826AB005D65D7 /* Categories+CoreDataClass.swift */; };
+		16CC8E39220826AB005D65D7 /* Categories+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC8E35220826AB005D65D7 /* Categories+CoreDataProperties.swift */; };
+		16CC8E3A220826AB005D65D7 /* JokeData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC8E36220826AB005D65D7 /* JokeData+CoreDataClass.swift */; };
+		16CC8E3B220826AB005D65D7 /* JokeData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC8E37220826AB005D65D7 /* JokeData+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +33,6 @@
 		1619347D2202E86200D71F56 /* CategorisedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorisedCell.swift; sourceTree = "<group>"; };
 		16584A172202A03A00CF627B /* RandomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomController.swift; sourceTree = "<group>"; };
 		16584A192202A1BC00CF627B /* RandomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCell.swift; sourceTree = "<group>"; };
-		16584A1C2202BC0500CF627B /* JokeData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JokeData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		16584A1D2202BC0500CF627B /* JokeData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JokeData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		16584A212202C5AF00CF627B /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
 		16584A232202C5D900CF627B /* FavouriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteController.swift; sourceTree = "<group>"; };
 		165BC3DA21E94B1400D317D1 /* ChuckJug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChuckJug.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +42,10 @@
 		165BC3E721E94B1500D317D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		165BC3EA21E94B1500D317D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		165BC3EC21E94B1500D317D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16CC8E34220826AB005D65D7 /* Categories+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categories+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16CC8E35220826AB005D65D7 /* Categories+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categories+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		16CC8E36220826AB005D65D7 /* JokeData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JokeData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		16CC8E37220826AB005D65D7 /* JokeData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JokeData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +98,10 @@
 		165BC3D121E94B1400D317D1 = {
 			isa = PBXGroup;
 			children = (
-				16584A1C2202BC0500CF627B /* JokeData+CoreDataClass.swift */,
-				16584A1D2202BC0500CF627B /* JokeData+CoreDataProperties.swift */,
+				16CC8E34220826AB005D65D7 /* Categories+CoreDataClass.swift */,
+				16CC8E35220826AB005D65D7 /* Categories+CoreDataProperties.swift */,
+				16CC8E36220826AB005D65D7 /* JokeData+CoreDataClass.swift */,
+				16CC8E37220826AB005D65D7 /* JokeData+CoreDataProperties.swift */,
 				165BC3DC21E94B1400D317D1 /* ChuckJug */,
 				165BC3DB21E94B1400D317D1 /* Products */,
 			);
@@ -113,9 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				165BC3DD21E94B1400D317D1 /* AppDelegate.swift */,
+				16584A1B2202A1C300CF627B /* RandomView */,
 				1619347F2202E9C300D71F56 /* CategoriedView */,
 				1619347A2202D79600D71F56 /* CategoryView */,
-				16584A1B2202A1C300CF627B /* RandomView */,
 				16584A202202C57000CF627B /* FavouriteView */,
 				165BC3E121E94B1400D317D1 /* Main.storyboard */,
 				165BC3EC21E94B1500D317D1 /* Info.plist */,
@@ -197,17 +203,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16584A1F2202BC0500CF627B /* JokeData+CoreDataProperties.swift in Sources */,
 				16584A1A2202A1BC00CF627B /* RandomCell.swift in Sources */,
 				16584A222202C5AF00CF627B /* FavouriteCell.swift in Sources */,
 				165BC3E621E94B1400D317D1 /* ChuckJug.xcdatamodeld in Sources */,
+				16CC8E38220826AB005D65D7 /* Categories+CoreDataClass.swift in Sources */,
 				165BC3DE21E94B1400D317D1 /* AppDelegate.swift in Sources */,
 				16584A242202C5D900CF627B /* FavouriteController.swift in Sources */,
 				1619347E2202E86200D71F56 /* CategorisedCell.swift in Sources */,
-				16584A1E2202BC0500CF627B /* JokeData+CoreDataClass.swift in Sources */,
+				16CC8E39220826AB005D65D7 /* Categories+CoreDataProperties.swift in Sources */,
 				16584A182202A03A00CF627B /* RandomController.swift in Sources */,
 				161934762202D75100D71F56 /* CategoryView.swift in Sources */,
+				16CC8E3B220826AB005D65D7 /* JokeData+CoreDataProperties.swift in Sources */,
 				1619347C2202E49300D71F56 /* CategorisedView.swift in Sources */,
+				16CC8E3A220826AB005D65D7 /* JokeData+CoreDataClass.swift in Sources */,
 				161934782202D77200D71F56 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

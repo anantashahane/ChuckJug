@@ -29,6 +29,7 @@ class CategorisedView: UITableViewController, NSFetchedResultsControllerDelegate
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         SetResultsController()
         SetupUI()
@@ -65,9 +66,19 @@ class CategorisedView: UITableViewController, NSFetchedResultsControllerDelegate
                     let newJoke = NSEntityDescription.insertNewObject(forEntityName: "JokeData", into: self.context)
                     newJoke.setValue(parsedData.id, forKey: "jokeid")
                     newJoke.setValue(parsedData.value, forKey: "joke")
-                    newJoke.setValue(parsedData.category, forKey: "category")
                     newJoke.setValue(false, forKey: "favourite")
                     newJoke.setValue(Date.init(timeIntervalSinceNow: 0), forKey: "added")
+                    if let categories = parsedData.category {
+                        for category in categories {
+                            let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
+                            newCategory.setValue(category, forKey: "category")
+                            newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                        }
+                    } else {
+                        let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
+                        newCategory.setValue("unknown", forKey: "category")
+                        newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                    }
                     try self.context.save()
                 }
                 catch let err {
@@ -89,7 +100,7 @@ class CategorisedView: UITableViewController, NSFetchedResultsControllerDelegate
     func SetResultsController() {
         let fetchRequest = NSFetchRequest<JokeData>(entityName: "JokeData")
         fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "added", ascending: false)]
-        
+        fetchRequest.predicate = NSPredicate.init(format: "ANY categories.category CONTAINS[cd] %@", (Category ?? "unknown"))
         self.resultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         
         do {

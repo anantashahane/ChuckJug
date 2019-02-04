@@ -7,18 +7,41 @@
 //
 
 import UIKit
+import CoreData
 
-class CategoryView: UICollectionViewController {
+class CategoryView: UICollectionViewController, NSFetchedResultsControllerDelegate {
+    
+    var context : NSManagedObjectContext!
+    var resultsController : NSFetchedResultsController<Categories>!
 
-    var Categories : [String]?
+    var refresher : UIControl!
     var SegueData : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         GetCategories()
+        SetupManagedObject()
         // Do any additional setup after loading the view.
+        GetCategories()
     }
 
+    func SetupManagedObject() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.context = appDelegate.persistentContainer.viewContext
+        self.context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        
+        let fetchRequest = NSFetchRequest<Categories>(entityName: "Categories")
+        fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "category", ascending: true)]
+        self.resultsController = NSFetchedResultsController.init(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: nil, cacheName: nil)
+        do {
+            try self.resultsController.performFetch()
+        }
+        catch let err {
+            print(err.localizedDescription)
+        }
+        self.resultsController.delegate = self
+    }
+    
     func GetCategories() {
         let url = URL(string: "https://api.chucknorris.io/jokes/categories")
         if let url = url {
@@ -29,10 +52,9 @@ class CategoryView: UICollectionViewController {
                 }
                 if let data = data {
                     do {
-                        self.Categories = try JSONSerialization.jsonObject(with: data, options: []) as? [String]
-                        DispatchQueue.main.async {
-                            self.collectionView.reloadData()
-                        }
+                        var categories = try JSONSerialization.jsonObject(with: data, options: []) as? [String]
+                        categories?.append("unknown")
+                        self.SaveData(for: categories)
                     } catch let err {
                         print("Serialisation Error: \(err.localizedDescription)")
                     }
@@ -42,22 +64,71 @@ class CategoryView: UICollectionViewController {
         }
     }
 
+    func SaveData(for Categories : [String]?) {
+        if var Categories = Categories {
+            Categories.sort()
+            var savedCategories : [String] = []
+            for savedCategory in self.resultsController.fetchedObjects! {
+                savedCategories.append(savedCategory.category!)
+            }
+            Categories = Categories.filter { return !savedCategories.contains($0)}
+            print(Categories)
+            for category in Categories {
+                let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
+                newCategory.setValue(category, forKey: "category")
+                do {
+                    try self.context.save()
+                }
+                catch let err {
+                    print(err.localizedDescription)
+                }
+            }
+            
+        }
+    }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.Categories?.count ?? 0
+        return self.resultsController.fetchedObjects?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CategoryCell
-        if let category = Categories?[indexPath.row] {
+        if let category = self.resultsController.fetchedObjects?[indexPath.row] {
             cell.setupViewCell(for: category)
         }
         return cell
     }
     
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case NSFetchedResultsChangeType.insert:
+            collectionView.performBatchUpdates({
+                collectionView.insertItems(at: [newIndexPath!])
+            }, completion: nil)
+            break
+        case NSFetchedResultsChangeType.move:
+            collectionView.performBatchUpdates({
+                collectionView.moveItem(at: indexPath!, to: newIndexPath!)
+            }, completion: nil)
+            break
+        case NSFetchedResultsChangeType.delete:
+            collectionView.performBatchUpdates({
+                collectionView.deleteItems(at: [indexPath!])
+            }, completion: nil)
+            break
+        case NSFetchedResultsChangeType.update:
+            collectionView.performBatchUpdates({
+                collectionView.deleteItems(at: [indexPath!])
+                collectionView.insertItems(at: [newIndexPath!])
+            }, completion: nil)
+        default:
+            break
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.SegueData = Categories?[indexPath.row] ?? "unknown"
+        self.SegueData = self.resultsController.fetchedObjects?[indexPath.row].category ?? "unknown"
         performSegue(withIdentifier: "Categorised", sender: self)
     }
     
@@ -71,4 +142,5 @@ extension CategoryView : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.view.frame.width/2.2 , height: self.view.frame.width/2.2)
     }
+    
 }

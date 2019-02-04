@@ -1,5 +1,5 @@
 //
-//  JokeData+CoreDataClass.swift
+//  Categories+CoreDataClass.swift
 //  ChuckJug
 //
 //  Created by Ananta Shahane on 04/02/19.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(JokeData)
-public class JokeData: NSManagedObject {
+@objc(Categories)
+public class Categories: NSManagedObject {
 
 }

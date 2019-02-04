@@ -14,6 +14,7 @@ class RandomController: UITableViewController, NSFetchedResultsControllerDelegat
     var resultsController : NSFetchedResultsController<JokeData>!
     var context : NSManagedObjectContext!
     var refresher : UIRefreshControl!
+    var Categories : [Categories]?
     
     struct Joke : Codable {
         let category : [String]?
@@ -28,7 +29,8 @@ class RandomController: UITableViewController, NSFetchedResultsControllerDelegat
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
-        
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        FetchCategories()
         SetResultsController()
         SetupUI()
         
@@ -65,9 +67,19 @@ class RandomController: UITableViewController, NSFetchedResultsControllerDelegat
                     let newJoke = NSEntityDescription.insertNewObject(forEntityName: "JokeData", into: self.context)
                     newJoke.setValue(parsedData.id, forKey: "jokeid")
                     newJoke.setValue(parsedData.value, forKey: "joke")
-                    newJoke.setValue(parsedData.category, forKey: "category")
                     newJoke.setValue(false, forKey: "favourite")
                     newJoke.setValue(Date.init(timeIntervalSinceNow: 0), forKey: "added")
+                    if let categories = parsedData.category {
+                        for category in categories {
+                            let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
+                            newCategory.setValue(category, forKey: "category")
+                            newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                        }
+                    } else {
+                        let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
+                        newCategory.setValue("unknown", forKey: "category")
+                        newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                    }
                     try self.context.save()
                 }
                 catch let err {
@@ -83,6 +95,18 @@ class RandomController: UITableViewController, NSFetchedResultsControllerDelegat
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(RandomController.GetJoke), for: UIControl.Event.valueChanged)
         self.tableView.addSubview(refresher)
+    }
+    
+    func FetchCategories() {
+        let categoryRequest = NSFetchRequest<Categories>.init(entityName: "Categories")
+        categoryRequest.sortDescriptors = [NSSortDescriptor.init(key: "category", ascending: true)]
+        let controller = NSFetchedResultsController.init(fetchRequest: categoryRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        do {
+            try controller.performFetch()
+        } catch let err {
+            print(err.localizedDescription)
+        }
+        self.Categories = controller.fetchedObjects
     }
     
     func SetResultsController() {
@@ -113,18 +137,18 @@ class RandomController: UITableViewController, NSFetchedResultsControllerDelegat
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case NSFetchedResultsChangeType.insert:
-            self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+            self.tableView.insertRows(at: [newIndexPath!], with: .top)
             break
         case NSFetchedResultsChangeType.delete:
-            self.tableView.deleteRows(at: [indexPath!], with: .fade)
+            self.tableView.deleteRows(at: [indexPath!], with: .bottom)
             break
         case NSFetchedResultsChangeType.move:
-            self.tableView.deleteRows(at: [indexPath!], with: .fade)
-            self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+            self.tableView.deleteRows(at: [indexPath!], with: .bottom)
+            self.tableView.insertRows(at: [newIndexPath!], with: .top)
             break
         case NSFetchedResultsChangeType.update:
-            self.tableView.deleteRows(at: [indexPath!], with: .fade)
-            self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+            self.tableView.deleteRows(at: [indexPath!], with: .bottom)
+            self.tableView.insertRows(at: [newIndexPath!], with: .top)
             break
         default:
             break
@@ -153,6 +177,5 @@ extension RandomController : JokeCellDelegate {
         Share.popoverPresentationController?.sourceView = self.view
         self.present(Share, animated: true, completion: nil)
     }
-    
     
 }

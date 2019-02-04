@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Categories" representedClassName="Categories" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="joke" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JokeData" inverseName="categories" inverseEntity="JokeData" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="category"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <entity name="JokeData" representedClassName="JokeData" syncable="YES">
         <attribute name="added" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="category" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="favoured" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="favourite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="joke" attributeType="String" minValueString="1" spotlightIndexingEnabled="YES" syncable="YES"/>
         <attribute name="jokeid" attributeType="String" minValueString="1" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categories" inverseName="joke" inverseEntity="Categories" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="jokeid"/>
@@ -14,6 +23,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="JokeData" positionX="-307.2109375" positionY="-225.546875" width="128" height="133"/>
+        <element name="JokeData" positionX="-729.2421875" positionY="-247.1640625" width="128" height="133"/>
+        <element name="Categories" positionX="-729" positionY="-198" width="128" height="73"/>
     </elements>
 </model>
