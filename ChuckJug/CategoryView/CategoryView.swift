@@ -122,6 +122,7 @@ class CategoryView: UICollectionViewController, NSFetchedResultsControllerDelega
                 collectionView.deleteItems(at: [indexPath!])
                 collectionView.insertItems(at: [newIndexPath!])
             }, completion: nil)
+            break
         default:
             break
         }

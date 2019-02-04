@@ -14,6 +14,7 @@ class CategorisedView: UITableViewController, NSFetchedResultsControllerDelegate
     var resultsController : NSFetchedResultsController<JokeData>!
     var context : NSManagedObjectContext!
     var refresher : UIRefreshControl!
+    var Categories : [String : Categories]?
     
     struct Joke : Codable {
         let category : [String]?
@@ -31,6 +32,7 @@ class CategorisedView: UITableViewController, NSFetchedResultsControllerDelegate
         context = appDelegate.persistentContainer.viewContext
         context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
+        FetchCategories()
         SetResultsController()
         SetupUI()
     }
@@ -69,15 +71,25 @@ class CategorisedView: UITableViewController, NSFetchedResultsControllerDelegate
                     newJoke.setValue(false, forKey: "favourite")
                     newJoke.setValue(Date.init(timeIntervalSinceNow: 0), forKey: "added")
                     if let categories = parsedData.category {
-                        for category in categories {
-                            let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
-                            newCategory.setValue(category, forKey: "category")
-                            newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                        if let localCategories = self.Categories {
+                            for Parsedcategory in categories {
+                                localCategories[Parsedcategory]?.addToJoke(newJoke as! JokeData)
+                            }
+                        } else {
+                            for category in categories {
+                                let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
+                                newCategory.setValue(category, forKey: "category")
+                                newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                            }
                         }
                     } else {
-                        let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
-                        newCategory.setValue("unknown", forKey: "category")
-                        newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                        if let localCategories = self.Categories {
+                            localCategories["unknown"]?.addToJoke(newJoke as! JokeData)
+                        } else {
+                            let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
+                            newCategory.setValue("unknown", forKey: "category")
+                            newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                        }
                     }
                     try self.context.save()
                 }
@@ -88,6 +100,23 @@ class CategorisedView: UITableViewController, NSFetchedResultsControllerDelegate
             }
             }.resume()
         refresher.endRefreshing()
+    }
+    
+    func FetchCategories() {
+        let categoryRequest = NSFetchRequest<Categories>.init(entityName: "Categories")
+        categoryRequest.sortDescriptors = [NSSortDescriptor.init(key: "category", ascending: true)]
+        let controller = NSFetchedResultsController.init(fetchRequest: categoryRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        do {
+            try controller.performFetch()
+        } catch let err {
+            print(err.localizedDescription)
+        }
+        if let fetchedObjects = controller.fetchedObjects {
+            self.Categories = [:]
+            for object in fetchedObjects {
+                self.Categories?[object.category!] = object
+            }
+        }
     }
     
     func SetupUI() {
@@ -125,18 +154,18 @@ class CategorisedView: UITableViewController, NSFetchedResultsControllerDelegate
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case NSFetchedResultsChangeType.insert:
-            self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+            self.tableView.insertRows(at: [newIndexPath!], with: .top)
             break
         case NSFetchedResultsChangeType.delete:
-            self.tableView.deleteRows(at: [indexPath!], with: .fade)
+            self.tableView.deleteRows(at: [indexPath!], with: .bottom)
             break
         case NSFetchedResultsChangeType.move:
-            self.tableView.deleteRows(at: [indexPath!], with: .fade)
-            self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+            self.tableView.deleteRows(at: [indexPath!], with: .bottom)
+            self.tableView.insertRows(at: [newIndexPath!], with: .top)
             break
         case NSFetchedResultsChangeType.update:
-            self.tableView.deleteRows(at: [indexPath!], with: .fade)
-            self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+            self.tableView.deleteRows(at: [indexPath!], with: .bottom)
+            self.tableView.insertRows(at: [newIndexPath!], with: .top)
             break
         default:
             break

@@ -14,7 +14,7 @@ class RandomController: UITableViewController, NSFetchedResultsControllerDelegat
     var resultsController : NSFetchedResultsController<JokeData>!
     var context : NSManagedObjectContext!
     var refresher : UIRefreshControl!
-    var Categories : [Categories]?
+    var Categories : [String : Categories]?
     
     struct Joke : Codable {
         let category : [String]?
@@ -70,15 +70,25 @@ class RandomController: UITableViewController, NSFetchedResultsControllerDelegat
                     newJoke.setValue(false, forKey: "favourite")
                     newJoke.setValue(Date.init(timeIntervalSinceNow: 0), forKey: "added")
                     if let categories = parsedData.category {
-                        for category in categories {
-                            let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
-                            newCategory.setValue(category, forKey: "category")
-                            newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                        if let localCategories = self.Categories {
+                            for Parsedcategory in categories {
+                                localCategories[Parsedcategory]?.addToJoke(newJoke as! JokeData)
+                            }
+                        } else {
+                            for category in categories {
+                                let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
+                                newCategory.setValue(category, forKey: "category")
+                                newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                            }
                         }
                     } else {
-                        let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
-                        newCategory.setValue("unknown", forKey: "category")
-                        newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                        if let localCategories = self.Categories {
+                            localCategories["unknown"]?.addToJoke(newJoke as! JokeData)
+                        } else {
+                            let newCategory = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: self.context)
+                            newCategory.setValue("unknown", forKey: "category")
+                            newCategory.mutableSetValue(forKey: "joke").add(newJoke)
+                        }
                     }
                     try self.context.save()
                 }
@@ -106,7 +116,12 @@ class RandomController: UITableViewController, NSFetchedResultsControllerDelegat
         } catch let err {
             print(err.localizedDescription)
         }
-        self.Categories = controller.fetchedObjects
+        if let fetchedObjects = controller.fetchedObjects {
+            self.Categories = [:]
+            for object in fetchedObjects {
+                self.Categories?[object.category!] = object
+            }
+        }
     }
     
     func SetResultsController() {
