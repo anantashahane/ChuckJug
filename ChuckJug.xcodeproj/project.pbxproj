@@ -24,6 +24,9 @@
 		16CC8E39220826AB005D65D7 /* Categories+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC8E35220826AB005D65D7 /* Categories+CoreDataProperties.swift */; };
 		16CC8E3A220826AB005D65D7 /* JokeData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC8E36220826AB005D65D7 /* JokeData+CoreDataClass.swift */; };
 		16CC8E3B220826AB005D65D7 /* JokeData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC8E37220826AB005D65D7 /* JokeData+CoreDataProperties.swift */; };
+		16CC8E62220885D5005D65D7 /* Jokes.png in Resources */ = {isa = PBXBuildFile; fileRef = 16CC8E5F220885D5005D65D7 /* Jokes.png */; };
+		16CC8E63220885D5005D65D7 /* Like.png in Resources */ = {isa = PBXBuildFile; fileRef = 16CC8E60220885D5005D65D7 /* Like.png */; };
+		16CC8E64220885D5005D65D7 /* Share.png in Resources */ = {isa = PBXBuildFile; fileRef = 16CC8E61220885D5005D65D7 /* Share.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,10 @@
 		16CC8E35220826AB005D65D7 /* Categories+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categories+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		16CC8E36220826AB005D65D7 /* JokeData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JokeData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		16CC8E37220826AB005D65D7 /* JokeData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JokeData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		16CC8E5D220882F0005D65D7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		16CC8E5F220885D5005D65D7 /* Jokes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jokes.png; sourceTree = "<group>"; };
+		16CC8E60220885D5005D65D7 /* Like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Like.png; sourceTree = "<group>"; };
+		16CC8E61220885D5005D65D7 /* Share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Share.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +105,8 @@
 		165BC3D121E94B1400D317D1 = {
 			isa = PBXGroup;
 			children = (
+				16CC8E5E220884B8005D65D7 /* Common */,
+				16CC8E5D220882F0005D65D7 /* README.md */,
 				16CC8E34220826AB005D65D7 /* Categories+CoreDataClass.swift */,
 				16CC8E35220826AB005D65D7 /* Categories+CoreDataProperties.swift */,
 				16CC8E36220826AB005D65D7 /* JokeData+CoreDataClass.swift */,
@@ -130,6 +139,16 @@
 				165BC3E921E94B1500D317D1 /* LaunchScreen.storyboard */,
 			);
 			path = ChuckJug;
+			sourceTree = "<group>";
+		};
+		16CC8E5E220884B8005D65D7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				16CC8E5F220885D5005D65D7 /* Jokes.png */,
+				16CC8E60220885D5005D65D7 /* Like.png */,
+				16CC8E61220885D5005D65D7 /* Share.png */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,9 +209,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16CC8E62220885D5005D65D7 /* Jokes.png in Resources */,
 				165BC3EB21E94B1500D317D1 /* LaunchScreen.storyboard in Resources */,
+				16CC8E63220885D5005D65D7 /* Like.png in Resources */,
 				165BC3E821E94B1500D317D1 /* Assets.xcassets in Resources */,
 				165BC3E321E94B1400D317D1 /* Main.storyboard in Resources */,
+				16CC8E64220885D5005D65D7 /* Share.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +394,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ananta.ChuckJug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -390,7 +412,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ananta.ChuckJug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

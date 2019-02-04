@@ -42,9 +42,23 @@ class CategorisedCell: UITableViewCell {
     public func SetupCell(for Joke: JokeData) {
         self.Jokedata = Joke
         let category = self.Jokedata.categories
+        var CategoryText = ""
+        for jokeCategory in Jokedata.categories {
+            if CategoryText == "" {
+                CategoryText = jokeCategory.category!
+            } else {
+                CategoryText.append(contentsOf: ", \(jokeCategory.category!)")
+            }
+        }
+        let attributedCategories = NSMutableAttributedString(string: CategoryText)
+        let attributes1: [NSAttributedString.Key : Any] = [
+            .foregroundColor: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1.0),
+            .font: UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        ]
+        attributedCategories.addAttributes(attributes1, range:NSRange(location: 0, length: CategoryText.count))
         let bmi = BackGroundImage[category.first?.category ?? "unknown"]!
         self.BackGround.image = bmi
-        self.CategoryLabel.text = category.first?.category ?? "unknown"
+        self.CategoryLabel.attributedText = attributedCategories
         let attributedString = NSMutableAttributedString(string: self.Jokedata.joke!)
         
         let attributes0: [NSAttributedString.Key : Any] = [
