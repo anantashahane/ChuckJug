@@ -16,6 +16,7 @@ class RandomController: UITableViewController, NSFetchedResultsControllerDelegat
     var refresher : UIRefreshControl!
     var Categories : [String : Categories]?
     
+    
     struct Joke : Codable {
         let category : [String]?
         let icon_url : URL

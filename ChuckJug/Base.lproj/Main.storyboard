@@ -45,19 +45,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ut0-3Q-veC">
-                                            <rect key="frame" x="16" y="11" width="343" height="17.5"/>
+                                            <rect key="frame" x="16" y="11" width="343" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="fashion" translatesAutoresizingMaskIntoConstraints="NO" id="RIo-2z-znf">
-                                            <rect key="frame" x="0.0" y="36.5" width="375" height="375"/>
+                                            <rect key="frame" x="0.0" y="37" width="375" height="375"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="RIo-2z-znf" secondAttribute="height" multiplier="1:1" id="cwn-CK-7cC"/>
                                             </constraints>
                                         </imageView>
                                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3tQ-g7-sxb">
-                                            <rect key="frame" x="0.0" y="411.5" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="412" width="375" height="44"/>
                                             <items>
                                                 <barButtonItem title="Item" image="Like" style="plain" id="gqe-gV-5j6">
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,7 +75,7 @@
                                             </items>
                                         </toolbar>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y31-ZK-0UI">
-                                            <rect key="frame" x="0.0" y="36.5" width="375" height="375"/>
+                                            <rect key="frame" x="0.0" y="37" width="375" height="375"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4Ox-nw-zTN">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -327,7 +327,7 @@
                                             <blurEffect style="light"/>
                                         </visualEffectView>
                                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brB-tq-tBu">
-                                            <rect key="frame" x="0.0" y="415" width="375" height="63.5"/>
+                                            <rect key="frame" x="0.0" y="415" width="375" height="64"/>
                                             <items>
                                                 <barButtonItem title="Item" image="Like" style="plain" id="vaY-8f-S2q">
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -396,19 +396,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDJ-jr-yiX">
-                                            <rect key="frame" x="16" y="11" width="343" height="20.5"/>
+                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="travel" translatesAutoresizingMaskIntoConstraints="NO" id="H9e-Ir-8OI">
-                                            <rect key="frame" x="0.0" y="39.5" width="375" height="375"/>
+                                            <rect key="frame" x="0.0" y="40" width="375" height="375"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="H9e-Ir-8OI" secondAttribute="height" multiplier="1:1" id="7zf-QJ-p9a"/>
                                             </constraints>
                                         </imageView>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxU-9w-GSR">
-                                            <rect key="frame" x="0.0" y="39.5" width="375" height="375"/>
+                                            <rect key="frame" x="0.0" y="40" width="375" height="375"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="R3o-zR-6nA">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -446,7 +446,7 @@
                                             <blurEffect style="light"/>
                                         </visualEffectView>
                                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfN-5a-W9q">
-                                            <rect key="frame" x="0.0" y="382" width="375" height="54"/>
+                                            <rect key="frame" x="0.0" y="382.5" width="375" height="54"/>
                                             <items>
                                                 <barButtonItem title="Item" image="Like" id="wwc-hd-CW9">
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -51,25 +51,19 @@ class RandomCell: UITableViewCell {
                 CategoryText.append(contentsOf: ", \(jokeCategory.category!)")
             }
         }
-        let attributedCategories = NSMutableAttributedString(string: CategoryText)
-        let attributes1: [NSAttributedString.Key : Any] = [
-            .foregroundColor: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1.0),
-            .font: UIFont(name: "HelveticaNeue-Bold", size: 15)!
-        ]
-        attributedCategories.addAttributes(attributes1, range:NSRange(location: 0, length: CategoryText.count))
+        self.CategoryLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16)
+        self.CategoryLabel.textColor = UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1.0)
         let bmi = BackGroundImage[category.first?.category ?? "unknown"]!
         self.BackGround.image = bmi
-        self.CategoryLabel.attributedText = attributedCategories
-        let attributedString = NSMutableAttributedString(string: self.Jokedata.joke!)
+        self.CategoryLabel.text = CategoryText
         
-        let attributes0: [NSAttributedString.Key : Any] = [
-            .foregroundColor: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1.0),
-            .font: UIFont(name: "HelveticaNeue-Bold", size: 15)!
-        ]
-        attributedString.addAttributes(attributes0, range: NSRange(location: 0, length: self.Jokedata.joke!.count))
+        self.JokeLabel.textColor = UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1.0)
+        var fontsize : CGFloat = 16
+        while self.JokeLabel.heightAnchor.constraint(lessThanOrEqualToConstant: self.BackGround.heightAnchor) {
+            fontsize = fontsize + 2
+            self.JokeLabel.font = UIFont(name: "HelveticaNeue-Bold", size: fontsize)
+        }
         
-        
-        self.JokeLabel.attributedText = attributedString
         if Jokedata.favourite {
             self.Favourite.tintColor = .red
         }

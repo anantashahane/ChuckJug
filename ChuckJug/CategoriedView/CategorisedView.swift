@@ -54,9 +54,14 @@ class CategorisedView: UITableViewController, NSFetchedResultsControllerDelegate
     }
 
     @objc func GetJoke() {
-        guard let url = URL(string: "https://api.chucknorris.io/jokes/random?category=\(Category!)") else { return }
+        var url : URL?
+        if Category == "unknown" {
+            url = URL(string: "https://api.chucknorris.io/jokes/random")
+        } else {
+            url = URL(string: "https://api.chucknorris.io/jokes/random?category=\(Category!)")
+        }
         
-        URLSession.shared.dataTask(with: url) {(data, response, error) in
+        URLSession.shared.dataTask(with: url!) {(data, response, error) in
             if let error = error {
                 print( "Fetch error: \(error.localizedDescription) \n Response type: \(String(describing: response))")
                 return
