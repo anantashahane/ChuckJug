@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCollectionViewCell" id="gTV-IL-0wX" customClass="CategoryCollectionViewCell" customModule="ChuckJug" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="201" height="184"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="201" height="184"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ogv-V9-VOH">
+                        <rect key="frame" x="10" y="10" width="181" height="164"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkm-Iv-TMY">
+                                <rect key="frame" x="20" y="64.5" width="141" height="35"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Celebrity">
+                                        <attributes>
+                                            <font key="NSFont" size="30" name="Monaco"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hkm-Iv-TMY" firstAttribute="centerY" secondItem="Ogv-V9-VOH" secondAttribute="centerY" id="AOU-2a-cPd"/>
+                            <constraint firstAttribute="trailing" secondItem="Hkm-Iv-TMY" secondAttribute="trailing" constant="20" id="GNK-rg-9rO"/>
+                            <constraint firstItem="Hkm-Iv-TMY" firstAttribute="leading" secondItem="Ogv-V9-VOH" secondAttribute="leading" constant="20" id="ryw-Uh-Hwk"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Ogv-V9-VOH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="07C-6a-0b6"/>
+                <constraint firstAttribute="bottom" secondItem="Ogv-V9-VOH" secondAttribute="bottom" constant="10" id="280-tj-uWh"/>
+                <constraint firstAttribute="trailing" secondItem="Ogv-V9-VOH" secondAttribute="trailing" constant="10" id="QJR-v3-uQb"/>
+                <constraint firstItem="Ogv-V9-VOH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="ree-UF-HRt"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="201" height="184"/>
+            <connections>
+                <outlet property="CategoryLabel" destination="Hkm-Iv-TMY" id="Dof-0t-gAu"/>
+                <outlet property="backPlate" destination="Ogv-V9-VOH" id="zFO-md-0d1"/>
+            </connections>
+            <point key="canvasLocation" x="247.10144927536234" y="140.625"/>
+        </collectionViewCell>
+    </objects>
+</document>
